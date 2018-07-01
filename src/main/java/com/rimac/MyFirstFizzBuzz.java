@@ -31,7 +31,7 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
         }
 
         if (i % 3 == 0) {
-            sb.append("Fizz");
+            sb.append("Kadabra");
         }
         
         if (i % 5 == 0) {
