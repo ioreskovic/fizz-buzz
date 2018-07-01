@@ -1,7 +1,6 @@
 package com.rimac;
 
 import java.util.List;
-import java.util.Optional;
 
 public final class MyFirstFizzBuzz implements FizzBuzz {
     /*
@@ -21,12 +20,15 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
     // I know, I'll just an assistant!
     // When given a number, they will either shout some incantation (which I assume is correct),
     // or say nothing at all, which means the number shouldn't be replaced.
+    //
+    // Hold on a second!!
+    // My assistant now has the same problem I've had.
+    // I've introduced more complexity, and just pushed the problem down the food chain.
+    // I know!!
+    // How about having one assistant for each separate incantation?
+    // I'll just ask each of them for specific numbers, and combine their answers!!
+    // Brilliant, just brilliant!
     */
-
-    @FunctionalInterface
-    interface MagiciansAssistant {
-        Optional<String> doLesserMagic(int number);
-    }
 
     @Override
     public List<String> doMagic(int from, int until) {
