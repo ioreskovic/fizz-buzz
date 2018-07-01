@@ -22,13 +22,13 @@ public class MyFirstFizzBuzzTest {
         assertThat(result).containsExactly(
                 "1",
                 "Abra",
-                "Fizz",
+                "Kadabra",
                 "Abra",
                 "Buzz",
-                "AbraFizz",
+                "AbraKadabra",
                 "7",
                 "Abra",
-                "Fizz",
+                "Kadabra",
                 "AbraBuzz"
         ).inOrder();
     }
@@ -54,6 +54,6 @@ public class MyFirstFizzBuzzTest {
 
         final List<String> result = fizzBuzz.doMagic(from, until);
 
-        assertThat(result).containsExactly("AbraFizzBuzz");
+        assertThat(result).containsExactly("AbraKadabraBuzz");
     }
 }
