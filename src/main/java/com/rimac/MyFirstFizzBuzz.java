@@ -3,7 +3,6 @@ package com.rimac;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public final class MyFirstFizzBuzz implements FizzBuzz {
     public MyFirstFizzBuzz(SimpleMindedMagiciansAssistant... assistants) {
@@ -41,9 +40,9 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
     private final List<SimpleMindedMagiciansAssistant> assistants;
 
     @Override
-    public List<String> doMagic(int from, int until) {
-        return IntStream.rangeClosed(from, until)
-                .mapToObj(this::consultAssistants)
+    public List<String> doMagic(List<Integer> numbers) {
+        return numbers.stream()
+                .map(this::consultAssistants)
                 .collect(Collectors.toList());
     }
 
@@ -55,6 +54,5 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
 
         if (assistantsVote.length() > 0) return assistantsVote;
         return Integer.toString(number);
-
     }
 }

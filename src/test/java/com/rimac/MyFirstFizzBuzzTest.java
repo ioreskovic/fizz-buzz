@@ -4,6 +4,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.google.common.truth.Truth.assertThat;
@@ -12,12 +14,9 @@ import static com.google.common.truth.Truth.assertThat;
 public class MyFirstFizzBuzzTest {
     @Test
     public void givenSomeRange_WhenDoingMagic_ThenAudienceShouldBeAmazed() {
-        final int from = 1;
-        final int until = 10;
-
         final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam());
 
-        final List<String> result = fizzBuzz.doMagic(from, until);
+        final List<String> result = fizzBuzz.doMagic(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
 
         assertThat(result).containsExactly(
                 "1",
@@ -34,25 +33,10 @@ public class MyFirstFizzBuzzTest {
     }
 
     @Test
-    public void givenInvalidRange_WhenDoingMagic_ThenAudienceShouldBeConfused() {
-        final int from = 42;
-        final int until = 13;
-
-        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam());
-
-        final List<String> result = fizzBuzz.doMagic(from, until);
-
-        assertThat(result).isEmpty();
-    }
-
-    @Test
     public void givenSuspiciousRange_WhenDoingMagic_ThenTheAudienceShouldBeGivingStandingOvations() {
-        final int from = 30;
-        final int until = from;
-
         final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam());
 
-        final List<String> result = fizzBuzz.doMagic(from, until);
+        final List<String> result = fizzBuzz.doMagic(Collections.singletonList(30));
 
         assertThat(result).containsExactly("AbraKadabraAlakazam");
     }
