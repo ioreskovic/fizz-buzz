@@ -2,7 +2,7 @@ package com.rimac;
 
 import java.util.List;
 
-public class MyFirstFizzBuzz implements FizzBuzz {
+public final class MyFirstFizzBuzz implements FizzBuzz {
     /*
     // This method receives:
     // Lower bound of closed interval, "from"
@@ -10,7 +10,7 @@ public class MyFirstFizzBuzz implements FizzBuzz {
     //
     // This method outputs (in return value, not on screen):
     // "Abra" if the number is divisible by 2
-    // "Fizz" if the number is divisible by 3
+    // "Kadabra" if the number is divisible by 3
     // "Buzz" if the number is divisible by 5
     // String representation of the number otherwise
     */
