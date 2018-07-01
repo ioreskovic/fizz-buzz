@@ -1,6 +1,5 @@
 package com.rimac;
 
-import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
@@ -32,5 +31,29 @@ public class MyFirstFizzBuzzTest {
                 "Fizz",
                 "Buzz"
         ).inOrder();
+    }
+
+    @Test
+    public void givenInvalidRange_WhenDoingMagic_ThenAudienceShouldBeConfused() {
+        final int from = 42;
+        final int until = 13;
+
+        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz();
+
+        final List<String> result = fizzBuzz.doMagic(from, until);
+
+        assertThat(result).isEmpty();
+    }
+
+    @Test
+    public void givenSuspiciousRange_WhenDoingMagic_ThenTheAudienceShouldBeGivingStandingOvations() {
+        final int from = 30;
+        final int until = from;
+
+        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz();
+
+        final List<String> result = fizzBuzz.doMagic(from, until);
+
+        assertThat(result).containsExactly("FizzBuzz");
     }
 }
