@@ -33,7 +33,7 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
     */
 
     @Override
-    public List<String> doMagic(int from, int until) {
+    public List<String> doMagic(List<Integer> numbers) {
         throw new UnsupportedOperationException("Not yet implemented!");
     }
 }
