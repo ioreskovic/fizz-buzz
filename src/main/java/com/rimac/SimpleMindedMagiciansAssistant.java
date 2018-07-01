@@ -2,7 +2,7 @@ package com.rimac;
 
 import java.util.Optional;
 
-public class SimpleMindedMagiciansAssistant {
+public abstract class SimpleMindedMagiciansAssistant {
     private final int number;
     private final String incantation;
 

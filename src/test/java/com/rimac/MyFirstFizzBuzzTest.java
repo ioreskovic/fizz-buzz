@@ -15,7 +15,7 @@ public class MyFirstFizzBuzzTest {
         final int from = 1;
         final int until = 10;
 
-        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz();
+        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam());
 
         final List<String> result = fizzBuzz.doMagic(from, until);
 
@@ -24,12 +24,12 @@ public class MyFirstFizzBuzzTest {
                 "Abra",
                 "Kadabra",
                 "Abra",
-                "Buzz",
+                "Alakazam",
                 "AbraKadabra",
                 "7",
                 "Abra",
                 "Kadabra",
-                "AbraBuzz"
+                "AbraAlakazam"
         ).inOrder();
     }
 
@@ -38,7 +38,7 @@ public class MyFirstFizzBuzzTest {
         final int from = 42;
         final int until = 13;
 
-        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz();
+        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam());
 
         final List<String> result = fizzBuzz.doMagic(from, until);
 
@@ -50,10 +50,10 @@ public class MyFirstFizzBuzzTest {
         final int from = 30;
         final int until = from;
 
-        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz();
+        final MyFirstFizzBuzz fizzBuzz = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam());
 
         final List<String> result = fizzBuzz.doMagic(from, until);
 
-        assertThat(result).containsExactly("AbraKadabraBuzz");
+        assertThat(result).containsExactly("AbraKadabraAlakazam");
     }
 }

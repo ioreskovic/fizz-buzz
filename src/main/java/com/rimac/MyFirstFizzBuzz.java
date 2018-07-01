@@ -1,17 +1,13 @@
 package com.rimac;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public final class MyFirstFizzBuzz implements FizzBuzz {
-    public MyFirstFizzBuzz() {
-        this.assistants = new ArrayList<>();
-
-        this.assistants.add(new SimpleMindedMagiciansAssistant(2, "Abra"));
-        this.assistants.add(new SimpleMindedMagiciansAssistant(3, "Kadabra"));
-        this.assistants.add(new SimpleMindedMagiciansAssistant(5, "Buzz"));
+    public MyFirstFizzBuzz(SimpleMindedMagiciansAssistant... assistants) {
+        this.assistants = Arrays.asList(assistants);
     }
     /*
     // This method receives:
@@ -21,7 +17,7 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
     // This method outputs (in return value, not on screen):
     // "Abra" if the number is divisible by 2
     // "Kadabra" if the number is divisible by 3
-    // "Buzz" if the number is divisible by 5
+    // "Alakazam" if the number is divisible by 5
     // String representation of the number otherwise
     //
     // I'm getting tired of changing this exact class over and over again when I'm
