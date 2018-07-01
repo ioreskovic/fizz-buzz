@@ -26,9 +26,14 @@ public class MyFirstFizzBuzz implements FizzBuzz {
     protected final String abracadabra(int i) {
         final StringBuilder sb = new StringBuilder();
 
+        if (i % 2 == 0) {
+            sb.append("Abra");
+        }
+
         if (i % 3 == 0) {
             sb.append("Fizz");
         }
+        
         if (i % 5 == 0) {
             sb.append("Buzz");
         }
