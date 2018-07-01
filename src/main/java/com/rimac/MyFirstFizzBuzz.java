@@ -1,13 +1,17 @@
 package com.rimac;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.Optional;
 
 public final class MyFirstFizzBuzz implements FizzBuzz {
     public MyFirstFizzBuzz() {
-        this.assistant = new MyOnlyAssistant();
+        this.assistants = new ArrayList<>();
+
+        this.assistants.add(new SimpleMindedMagiciansAssistant(2, "Abra"));
+        this.assistants.add(new SimpleMindedMagiciansAssistant(3, "Kadabra"));
+        this.assistants.add(new SimpleMindedMagiciansAssistant(5, "Buzz"));
     }
     /*
     // This method receives:
@@ -26,42 +30,33 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
     // I know, I'll just an assistant!
     // When given a number, they will either shout some incantation (which I assume is correct),
     // or say nothing at all, which means the number shouldn't be replaced.
+    //
+    // Hold on a second!!
+    // My assistant now has the same problem I've had.
+    // I've introduced more complexity, and just pushed the problem down the food chain.
+    // I know!!
+    // How about having one assistant for each separate incantation?
+    // I'll just ask each of them for specific numbers, and combine their answers!!
+    // Brilliant, just brilliant!
     */
 
-    @FunctionalInterface
-    interface MagiciansAssistant {
-        Optional<String> doLesserMagic(int number);
-    }
-
-    private final MagiciansAssistant assistant;
+    private final List<SimpleMindedMagiciansAssistant> assistants;
 
     @Override
     public List<String> doMagic(int from, int until) {
         return IntStream.rangeClosed(from, until)
-                .mapToObj(i -> assistant.doLesserMagic(i)
-                        .orElse(Integer.toString(i))
-                ).collect(Collectors.toList());
+                .mapToObj(this::consultAssistants)
+                .collect(Collectors.toList());
     }
 
-    protected final String abracadabra(int i) {
-        final StringBuilder sb = new StringBuilder();
+    protected final String consultAssistants(int number) {
+        String assistantsVote = assistants.stream()
+                .map(assistant -> assistant.doSimpleMagic(number))
+                .map(x -> x.orElse(""))
+                .collect(Collectors.joining());
 
-        if (i % 2 == 0) {
-            sb.append("Abra");
-        }
+        if (assistantsVote.length() > 0) return assistantsVote;
+        return Integer.toString(number);
 
-        if (i % 3 == 0) {
-            sb.append("Kadabra");
-        }
-
-        if (i % 5 == 0) {
-            sb.append("Buzz");
-        }
-
-        if (sb.length() == 0) {
-            sb.append(i);
-        }
-
-        return sb.toString();
     }
 }
