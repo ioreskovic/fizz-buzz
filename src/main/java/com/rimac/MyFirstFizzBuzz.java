@@ -11,6 +11,7 @@ public class MyFirstFizzBuzz implements FizzBuzz {
     // Upper bound of closed interval, "until"
     //
     // This method outputs (in return value, not on screen):
+    // "Abra" if the number is divisible by 2
     // "Fizz" if the number is divisible by 3
     // "Buzz" if the number is divisible by 5
     // String representation of the number otherwise
