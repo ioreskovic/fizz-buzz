@@ -38,6 +38,8 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
     // How about having one assistant for each separate incantation?
     // I'll just ask each of them for specific numbers, and combine their answers!!
     // Brilliant, just brilliant!
+    //
+    // But I still have to tell them how to do it. I wish I didn't have to do that.
     */
 
     private final List<SimpleMindedMagiciansAssistant> assistants;
