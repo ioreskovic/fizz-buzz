@@ -40,4 +40,20 @@ public class MyFirstFizzBuzzTest {
 
         assertThat(result).containsExactly("AbraKadabraAlakazam");
     }
+
+    @Test
+    public void given2Magicians_WhenDoingMagic_ThenEachIsIndependent() {
+        final List<Integer> numbers = Arrays.asList(1, 2, 3, 5, 6, 10, 15, 30);
+
+        final FizzBuzz firstMagician = new MyFirstFizzBuzz(new Behold(), new Abra(), new Kadabra(), new Alakazam());
+        final FizzBuzz secondMagician = new MyFirstFizzBuzz(new Abra(), new Kadabra(), new Alakazam(), new Shazam());
+
+        System.out.println("I like to go first!!!");
+        firstMagician.doMagic(numbers).forEach(System.out::println);
+
+        System.out.println();
+
+        System.out.println("I like to go last!!!");
+        secondMagician.doMagic(numbers).forEach(System.out::println);
+    }
 }
