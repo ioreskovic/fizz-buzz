@@ -6,6 +6,9 @@ import java.util.stream.IntStream;
 import java.util.Optional;
 
 public final class MyFirstFizzBuzz implements FizzBuzz {
+    public MyFirstFizzBuzz() {
+        this.assistant = new MyOnlyAssistant();
+    }
     /*
     // This method receives:
     // Lower bound of closed interval, "from"
@@ -30,11 +33,14 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
         Optional<String> doLesserMagic(int number);
     }
 
+    private final MagiciansAssistant assistant;
+
     @Override
     public List<String> doMagic(int from, int until) {
         return IntStream.rangeClosed(from, until)
-                .mapToObj(this::abracadabra)
-                .collect(Collectors.toList());
+                .mapToObj(i -> assistant.doLesserMagic(i)
+                        .orElse(Integer.toString(i))
+                ).collect(Collectors.toList());
     }
 
     protected final String abracadabra(int i) {
@@ -47,7 +53,7 @@ public final class MyFirstFizzBuzz implements FizzBuzz {
         if (i % 3 == 0) {
             sb.append("Kadabra");
         }
-        
+
         if (i % 5 == 0) {
             sb.append("Buzz");
         }
